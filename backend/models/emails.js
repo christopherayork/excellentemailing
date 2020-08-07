@@ -10,4 +10,4 @@ const EmailSchema = new mongoose.Schema({
     }
 })
 
-module.exports = moongoose.model("Emails", EmailSchema);
+module.exports = mongoose.model("Emails", EmailSchema);
