@@ -3,7 +3,9 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 20vmin;
+  margin-bottom: 50px;
+  margin-top: 50px;
   pointer-events: none;
 }
 
@@ -35,4 +37,128 @@
   to {
     transform: rotate(360deg);
   }
+}
+/* Nav Temp Styles */
+.nav ul {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  background-color: tomato;
+  border-radius: 5px;
+}
+.nav ul a {
+  text-decoration: none;
+  flex: none;
+}
+.nav ul li {
+  padding: 15px;
+  margin-right: 20px;
+  color: #fff;
+  transition: background ease-in 100ms, color ease-in 100ms;
+}
+.nav ul li:hover {
+  background-color: #fff;
+  color: tomato;
+  transition: background ease-in 100ms, color ease-in 100ms;
+}
+
+/* Form Temp Styles */
+
+.form-cont {
+    max-width: 350px;
+    height: 450px;
+    margin: 0 auto 0;
+    padding: 25px 50px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.65);
+}
+.form-cont h3 {
+    text-align: center;
+    font-size: 22px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin:0;
+    padding: 0 0 15px;
+    text-transform: uppercase;
+}
+.form-cont form {
+    display: flex;
+    flex-direction: column;
+}
+.form-cont form input {
+    flex: none;
+    background-color: #fff;
+    padding:10px;
+    outline: none;
+    border: 1px solid #fff;
+    margin-top: 10px;
+}
+.form-cont form .button-cont {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.form-cont form button {
+    background-color: rgb(252, 51, 0);
+    width: 100%;
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all ease-in .3s;
+    border-top: 3px solid rgb(252, 51, 0);
+    border-bottom: 3px solid rgb(252, 51, 0);
+}
+.form-cont form button:hover {
+    width: 90%;
+    background-color: transparent;
+    border-top: 3px solid rgb(192, 38, 0);
+    border-bottom: 3px solid rgb(192, 38, 0);
+    /* color: rgb(252, 51, 0); */
+    color: #fff;
+    transition: all ease-out 0.3s;
+    letter-spacing: .2em;
+    height: 43px;
+}
+.form-cont form button:last-child {
+    margin-right: 0;
+}
+.form-cont form a {
+    color: rgb(252, 51, 0);
+    text-transform: uppercase;
+    border-radius: 10px;
+    padding: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    letter-spacing: .2em;
+    transition: color 0.3s;
+}
+.form-cont form a:hover {
+    color: #fff;
+}
+.form-cont .switch {
+  background-color: transparent;
+  border: none;
+  display: inline;
+  padding-top: 0;
+  text-decoration: underline;
+}
+.form-cont .switch:hover {
+  border: none;
+  height: auto;
+  letter-spacing: .1em;
+  color: rgb(252, 51, 0);
 }
