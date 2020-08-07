@@ -11,14 +11,37 @@ const createUser = (req, res) => {
 
 const getUser = (req, res) => {
     res.status(200).json({UserId: req.params.id})
+    let userID = req.params.id;
+    if(!userID) res.status(500).json({ message: 'You must supply a user ID as {id: value}' });
+    UserSchema.find({ id: userID }).exec(function(err, user) {
+        if(err) res.status(400).json({ message: 'User could not be found.', error: true });
+        else res.status(200).json(user);
+    });
 };
 
-const updateUser = (req, res) => {
+const updateUser = async (req, res) => {
     res.status(200).json({ UserId: req.params.id })
+    let userID = req.params.id;
+    let changes = req.body;
+    if(!userID) res.status(500).json({ message: 'You must supply a user ID as {id: value}' });
+    try {
+        await UserSchema.findOneAndUpdate({ id: userID }, changes);
+        res.status(200).json({ message: 'User updated.' });
+    } catch(err) {
+        res.status(400).json({ message: 'Could not update user.', error: true });
+    }
 };
 
-const deleteUser = (req, res) => {
+const deleteUser = async (req, res) => {
     res.status(200).json({ UserId: req.params.id })
+    let userID = req.params.id;
+    if(!userID) res.status(500).json({ message: 'You must supply a user ID as {id: value}' });
+    try {
+        await UserSchema.findOneAndDelete({ id: userID });
+        res.status(200).json({ message: 'User deleted.' });
+    } catch(err) {
+        res.status(400).json({ 'Could not delete user.', error: true });
+    }
 };
 
 module.exports = { createUser, getUser, updateUser, deleteUser };
