@@ -40,7 +40,7 @@ const deleteUser = async (req, res) => {
         await UserSchema.findOneAndDelete({ id: userID });
         res.status(200).json({ message: 'User deleted.' });
     } catch(err) {
-        res.status(400).json({ 'Could not delete user.', error: true });
+        res.status(400).json({ message: 'Could not delete user.', error: true });
     }
 };
 
