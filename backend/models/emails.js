@@ -7,7 +7,8 @@ const EmailSchema = new mongoose.Schema({
     addedBy: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
-    }
+    },
+    tags: [String]
 })
 
 module.exports = mongoose.model("Emails", EmailSchema);

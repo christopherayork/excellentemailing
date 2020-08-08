@@ -1,9 +1,8 @@
 const EmailsSchema = require('../models/Emails');
 
 const createEmails = (req, res) => {
+    res.status(200).json({ message: 'Emails Created' });
 
-
-    res.status(200).json({ message: 'Emails Created' })
 };
 
 const getEmails = (req, res) => {
