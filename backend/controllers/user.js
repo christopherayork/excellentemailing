@@ -7,10 +7,11 @@ const createUser = (req, res) => {
         return;
     }
     let newUser = new UserSchema(userData);
+    console.log("This is the new User", userData);
     newUser.setPassword(userData.password);
-    newUser.save(function(err) {
+    newUser.save(function(err, obj) {
         if(err) res.status(400).json({ message: 'Unable to save post', error: true });
-        else res.status(200).json({ message: 'User created' });
+        else res.status(200).json({ message: 'User created', data: obj });
     });
 };
 
@@ -49,4 +50,25 @@ const deleteUser = async (req, res) => {
     }
 };
 
-module.exports = { createUser, getUser, updateUser, deleteUser };
+const loginUser = (req, res) => {
+    const { username, password } = req.body;
+    console.log('Username:', { username: username })
+    UserSchema
+        .findOne({ username: username })
+        .then(user => {
+            //If the password matches after going through the hash continue
+            if (user && bcrypt.compareSync(password, user.password)) {
+                // Create a token
+                const token = generateToken(user)
+                res.status(200).json({ message: 'Welcome', token });
+            }
+            else {
+                error('Wrong Information', 401, res)
+            }
+        })
+        .catch(err => {
+            res.status(501).json({ message: 'It Went to the Catch', err })
+        })
+};
+
+module.exports = { createUser, getUser, updateUser, deleteUser, loginUser };
