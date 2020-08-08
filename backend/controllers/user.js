@@ -2,10 +2,15 @@ const UserSchema = require('../models/user');
 
 const createUser = (req, res) => {
     let userData = req.body;
+    if(!userData || !userData.hasOwnProperty('password') || !userData.hasOwnProperty('username') || !userData.hasOwnProperty('email')) {
+        res.status(400).json({ message: 'You must provide a user with { username, email, password }.' });
+        return;
+    }
     let newUser = new UserSchema(userData);
+    newUser.setPassword(userData.password);
     newUser.save(function(err) {
-       if(err) res.status(400).json({ message: 'Unable to save post', error: true });
-       else res.status(200).json({ message: 'User created' });
+        if(err) res.status(400).json({ message: 'Unable to save post', error: true });
+        else res.status(200).json({ message: 'User created' });
     });
 };
 

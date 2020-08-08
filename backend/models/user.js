@@ -6,8 +6,8 @@ const secret = require('../config/secret');
 
 
 const UserSchema = new mongoose.Schema({
-    username: { type: String, lowercase: true, unique: true, required: [true, "can't be blank"], match: [/^[a-zA-Z0-9]+$/, 'is invalid'], index: true },
-    email: { type: String, lowercase: true, unique: true, required: [true, "can't be blank"], match: [/\S@\S\.\S/, 'is invalid'], index: true },
+    username: { type: String, lowercase: true, unique: true, required: [true, "can't be blank"], match: [/[a-zA-Z0-9]$/, 'is invalid'], index: true },
+    email: { type: String, lowercase: true, unique: true, required: [true, "can't be blank"], index: true },
     hash: String,
     salt: String
 }, {timestamps: true})
@@ -15,7 +15,7 @@ const UserSchema = new mongoose.Schema({
 // Plugin that will check to see if a email/username is already being used.
 UserSchema.plugin(uniqueValidator, { message: 'is already taken.' });
 
-// Function that incrypts the password
+// Function that encrypts the password
 UserSchema.methods.setPassword = function(password) {
     this.salt = crypto.randomBytes(16).toString('hex');
     this.hash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512').toString('hex');
@@ -49,6 +49,6 @@ UserSchema.methods.toAuthJSON = function() {
     };
 };
 
-mongoose.model('User', UserSchema);
+const UsersModel = mongoose.model('User', UserSchema);
 
-module.exports = UserSchema;
+module.exports = UsersModel;
