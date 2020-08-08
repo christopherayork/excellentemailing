@@ -8,6 +8,8 @@ import Onboarding from './components/onboarding/Onboarding';
 import SendEmails from './components/sendEmails/SendEmails';
 import About from './components/about/About';
 import Contact from './components/contact/Contact';
+import Footer from './components/nav/Footer';
+
 
 import './App.css';
 
@@ -22,6 +24,7 @@ function App() {
         <Route path="/sendemails" component={SendEmails} />
         <Route exact path="/about" component={About} />
         <Route path="/contact" component={Contact} />
+        <Footer />
       </header>
     </div>
   );

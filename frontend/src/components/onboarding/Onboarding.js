@@ -42,6 +42,9 @@ const Onboarding = () => {
 return (
     <div className="form-cont">
         {console.log(user)}
+        {onboardingState
+        ?    <h3>Sign Up</h3>
+        : <h3>Sign In</h3>}
         <form onSubmit={event => handleSubmit(event)}>
             <input
                 type="username"

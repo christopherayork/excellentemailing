@@ -1,5 +1,9 @@
+* {
+  box-sizing: border-box;
+}
 .App {
   text-align: center;
+  overflow: hidden;
 }
 
 .App-logo {
@@ -69,8 +73,8 @@
 /* Form Temp Styles */
 
 .form-cont {
-    max-width: 350px;
-    height: 450px;
+    width: 450px;
+    height: auto;
     margin: 0 auto 0;
     padding: 25px 50px;
     color: #fff;
@@ -161,4 +165,76 @@
   height: auto;
   letter-spacing: .1em;
   color: rgb(252, 51, 0);
+}
+/* Footer Styles */
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: tomato;
+  font-size: 13px;
+  width: 100%;
+  padding:15px;
+}
+
+/* Dashboard */
+.dashboard {
+  background-color: rgba(0, 0, 0, 0.65);
+  padding:50px;
+  text-align: left;
+}
+.dashboard h3 {
+  text-align: center;
+}
+
+/* About */
+.about {
+  display: flex;
+  width: 100%;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+.about .person-card {
+  width: 33.33333%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.about .person-card .img-cont {
+  width: 500px;
+  height: 440px;
+}
+.about .person-card .picture {
+  border: double 2px #fff;
+  height: 100%;
+  width: 100%;
+  background-color: red;
+  object-fit: cover;
+  object-position: 100% 30%;
+}
+.about .person-card h4,
+.about .person-card h3 {
+  margin: 0;
+  padding: 0;
+}
+.about .person-card h3 {
+  font-size: 50px;
+  color: tomato;
+  background-color: #fff;
+  width: 500px;
+  padding: 10px;
+}
+.about .person-card h4 {
+  color: #fff;
+  background-color: tomato;
+  padding: 5px;
+  width: 500px;
+}
+.about .person-card h5 {
+  font-size: 22px;
+}
+.about .person-card p {
+  font-size: 19px;
+  text-align: left;
 }
