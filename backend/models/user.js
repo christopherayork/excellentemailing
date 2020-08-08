@@ -40,7 +40,7 @@ UserSchema.methods.generateJWT = function() {
     }, secret);
 };
 
-// 
+
 UserSchema.methods.toAuthJSON = function() {
     return {
         username: this.username,
