@@ -1,10 +1,25 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const helmet = require('helmet');
+const cors = require('cors');
+
 require('./models/user');
 const UsersRoutes = require('./routes/user');
 const server = express();
 const PORT = process.env.PORT || 5000;
+
+
+
+// Invoke dependencies 
 server.use(express.json());
+server.use(helmet());
+server.use(cors({
+    origin: '*',
+    // allows headers to be read
+    credentials: true
+}));
+
+
 server.use('/api/Users', UsersRoutes);
 
 mongoose.connect(

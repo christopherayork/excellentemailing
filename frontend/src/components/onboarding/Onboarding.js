@@ -20,15 +20,28 @@ const Onboarding = () => {
     }
 
     const handleSubmit = event => {
-        console.log("User Created: ", user)
-        axios
-            .post('https://reqres.in/api/users/', user)
-            .then(res => {
-                console.log(res);
-                setDisplayUser(res.data);
-            })
-            .catch(err => console.log(err.response));
-
+        let userTemp = {
+            username: user.username,
+            email: user.email,
+            password: user.psw
+        };
+        if(!onboardingState) {
+            console.log("User Logged In: ", userTemp)
+            axios
+                .post('http://localhost:5000/api/users/login/', userTemp)
+                .then(res => {
+                    console.log(res);
+                })
+                .catch(err => console.log(err.response));
+        } else {
+            console.log("User Created: ", userTemp)
+            axios
+                .post('http://localhost:5000/api/users/createUser/', userTemp)
+                .then(res => {
+                    console.log(res);
+                })
+                .catch(err => console.log(err.response));
+        }
         setUser({ username: '', email: '', psw: '', pswRepeat: '' })
         event.preventDefault();
     }
@@ -95,10 +108,6 @@ return (
                 <p>Already have an account? <button className="switch" onClick={() => handleSwitch()}>Signin here</button></p>
                 : <p>Need an account? <button className="switch" onClick={() => handleSwitch()} >Signup here</button></p>}
         </form>
-        <div className="newUsers">
-            <h3>Name: {displayUser.email}</h3>
-            <h3>Password: {displayUser.psw}</h3>
-        </div>
     </div>
 )
 }
