@@ -1,9 +1,15 @@
+* {
+  box-sizing: border-box;
+}
 .App {
   text-align: center;
+  overflow: hidden;
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 20vmin;
+  margin-bottom: 50px;
+  margin-top: 50px;
   pointer-events: none;
 }
 
@@ -35,4 +41,239 @@
   to {
     transform: rotate(360deg);
   }
+}
+/* Nav Temp Styles */
+.nav ul {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  background-color: tomato;
+}
+.nav ul a {
+  text-decoration: none;
+  flex: none;
+}
+.nav ul li {
+  padding: 15px;
+  margin-right: 20px;
+  color: #fff;
+  transition: background ease-in 100ms, color ease-in 100ms;
+}
+.nav ul li:hover {
+  background-color: #fff;
+  color: tomato;
+  transition: background ease-in 100ms, color ease-in 100ms;
+}
+
+/* Form Temp Styles */
+
+.form-cont {
+    width: 450px;
+    height: auto;
+    margin: 0 auto 0;
+    padding: 25px 50px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.65);
+}
+.form-cont h3 {
+    text-align: center;
+    font-size: 22px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin:0;
+    padding: 0 0 15px;
+    text-transform: uppercase;
+}
+.form-cont form {
+    display: flex;
+    flex-direction: column;
+}
+.form-cont form input {
+    flex: none;
+    background-color: #fff;
+    padding:10px;
+    outline: none;
+    border: 1px solid #fff;
+    margin-top: 10px;
+}
+.form-cont form .button-cont {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.form-cont form button {
+    background-color: rgb(252, 51, 0);
+    width: 100%;
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all ease-in .3s;
+    border-top: 3px solid rgb(252, 51, 0);
+    border-bottom: 3px solid rgb(252, 51, 0);
+}
+.form-cont form button:hover {
+    width: 90%;
+    background-color: transparent;
+    border-top: 3px solid rgb(192, 38, 0);
+    border-bottom: 3px solid rgb(192, 38, 0);
+    /* color: rgb(252, 51, 0); */
+    color: #fff;
+    transition: all ease-out 0.3s;
+    letter-spacing: .2em;
+    height: 43px;
+}
+.form-cont form button:last-child {
+    margin-right: 0;
+}
+.form-cont form a {
+    color: rgb(252, 51, 0);
+    text-transform: uppercase;
+    border-radius: 10px;
+    padding: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    letter-spacing: .2em;
+    transition: color 0.3s;
+}
+.form-cont form a:hover {
+    color: #fff;
+}
+.form-cont .switch {
+  background-color: transparent;
+  border: none;
+  display: inline;
+  padding-top: 0;
+  text-decoration: underline;
+}
+.form-cont .switch:hover {
+  border: none;
+  height: auto;
+  letter-spacing: .1em;
+  color: rgb(252, 51, 0);
+}
+/* Footer Styles */
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: tomato;
+  font-size: 13px;
+  width: 100%;
+  padding:15px;
+  margin-bottom: 25px;
+}
+
+/* Dashboard */
+.dashboard {
+  background-color: rgba(0, 0, 0, 0.65);
+  padding:50px;
+  text-align: left;
+}
+.dashboard h3 {
+  text-align: center;
+}
+
+/* About */
+.about {
+  display: flex;
+  width: 100%;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+.about .person-card {
+  width: 33.33333%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.about .person-card .img-cont {
+  width: 500px;
+  height: 440px;
+}
+.about .person-card .picture {
+  border: double 2px #fff;
+  height: 100%;
+  width: 100%;
+  background-color: red;
+  object-fit: cover;
+  object-position: 100% 30%;
+}
+.about .person-card h4,
+.about .person-card h3 {
+  margin: 0;
+  padding: 0;
+}
+.about .person-card h3 {
+  font-size: 50px;
+  color: tomato;
+  background-color: #fff;
+  width: 500px;
+  padding: 10px;
+}
+.about .person-card h4 {
+  color: #fff;
+  background-color: tomato;
+  padding: 5px;
+  width: 500px;
+}
+.about .person-card h5 {
+  font-size: 22px;
+}
+.about .person-card p {
+  font-size: 19px;
+  text-align: left;
+}
+
+/* Emails List */
+.emails {
+  height: 500px;
+  overflow: auto;
+}
+.button-cont {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+}
+.button-cont button {
+  font-size: 18px;
+  padding: 15px;
+  background-color: tomato;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+.button-cont button:hover {
+  background-color: #fff;
+  color: tomato;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid tomato;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.521);
 }
