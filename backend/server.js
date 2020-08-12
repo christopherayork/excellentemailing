@@ -7,6 +7,7 @@ require("dotenv").config();
 
 require("./models/user");
 const UsersRoutes = require("./routes/user");
+const EmailRoutes = require("./routes/emails");
 const server = express();
 const PORT = process.env.PORT || 5000;
 
@@ -22,6 +23,7 @@ server.use(
 );
 
 server.use("/api/Users", UsersRoutes);
+server.use("/api/Email", EmailRoutes);
 
 mongoose
   .connect(
