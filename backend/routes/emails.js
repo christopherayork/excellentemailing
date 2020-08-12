@@ -10,6 +10,7 @@ router.post('/createEmails', EmailssController.createEmails);
 
 // Read
 router.get('/getEmails/:id', EmailssController.getEmails);
+router.get('/getEmailsUser/:id', EmailssController.getEmailsByUser);
 
 // Update
 router.patch('/updateEmails/:id', EmailssController.updateEmails)
