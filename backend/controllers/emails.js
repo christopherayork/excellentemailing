@@ -2,6 +2,7 @@ const EmailsSchema = require('../models/Emails');
 
 const createEmails = (req, res) => {
     if(!req.body || !req.body.hasOwnProperty('email')) res.status(400).json({ message: 'You must supply an email in the format of { email }.', error: true });
+    // figure out how we're passing the token, and decode it.
     let Email = new EmailsSchema(req.body);
     Email.save(function(err) {
         if(err) res.status(400).json({ message: 'The email could not be saved.', error: true });
