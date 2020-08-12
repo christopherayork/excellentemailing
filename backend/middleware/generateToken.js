@@ -11,5 +11,5 @@ module.exports = (user) => {
     expiresIn: "8h",
   };
   // Fix this later, the secret isn't getting here like it should
-  return jwt.sign(payload, "SecretHere", options);
+  return jwt.sign(payload, process.env.SECRET, options);
 };

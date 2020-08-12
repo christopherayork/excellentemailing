@@ -2,6 +2,16 @@ const Users = require("../models/user");
 const bcrypt = require("bcryptjs");
 const generateToken = require("../middleware/generateToken");
 
+const viewAllUsers = (req, res) => {
+  Users.find()
+    .then((docs) => {
+      res.status(200).json(docs);
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err });
+    });
+};
+
 const createUser = (req, res) => {
   let userData = req.body;
   if (
@@ -23,14 +33,24 @@ const createUser = (req, res) => {
   let newUser = new Users(userData);
   console.log("This is the new User", userData);
 
+  // saving the user to the users collection
   newUser
     .save()
     .then((user) => {
-      const token = generateToken(obj);
-      res.status(200).json({ message: "User created", data: obj, token });
+      const token = generateToken(user);
+      const tempUser = {
+        _id: user._id,
+        username: user.username,
+        email: user.email,
+      };
+      res.status(201).json({
+        message: "User Created",
+        token,
+        tempUser,
+      });
     })
     .catch((err) => {
-      res.status(400).json({ message: "Unable to save post", error: true });
+      res.status(500).json({ error: `${err}` });
     });
 };
 
@@ -100,4 +120,11 @@ const loginUser = (req, res) => {
     });
 };
 
-module.exports = { createUser, getUser, updateUser, deleteUser, loginUser };
+module.exports = {
+  createUser,
+  getUser,
+  updateUser,
+  deleteUser,
+  loginUser,
+  viewAllUsers,
+};
