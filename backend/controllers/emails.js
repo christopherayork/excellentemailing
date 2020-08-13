@@ -17,7 +17,8 @@ const createEmails = (req, res) => {
       message: "You must supply an email in the format of { email }.",
       error: true,
     });
-  let Email = new EmailsSchema(req.body);
+  let emailOptions = { ...req.body, addedBy: req.user.id };
+  let Email = new EmailsSchema(emailOptions);
   Email.save(function (err) {
     if (err)
       res
