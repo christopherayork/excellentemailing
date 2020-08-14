@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken')
-const secrets = require('../config/secrets.js')
+const secrets = require('../config/secret.js')
 
 
 module.exports = (req, res, next) => {
@@ -10,7 +10,7 @@ module.exports = (req, res, next) => {
             if (err) {
                 res.status(401).json({ message: 'Invalid Login or Token Expired.' })
             } else {
-                req.user = { username: decodedToken.username }
+                req.user = { username: decodedToken.username, id: decodedToken.subject };
                 next()
             }
         })

@@ -11,12 +11,14 @@ const getAllEmails = (req, res) => {
 };
 
 const createEmails = (req, res) => {
+
   if (!req.body || !req.body.hasOwnProperty("email"))
     res.status(400).json({
       message: "You must supply an email in the format of { email }.",
       error: true,
     });
-  let Email = new EmailsSchema(req.body);
+  let emailOptions = { ...req.body, addedBy: req.user.id };
+  let Email = new EmailsSchema(emailOptions);
   Email.save(function (err) {
     if (err)
       res
@@ -69,6 +71,11 @@ const deleteEmails = (req, res) => {
       message: "You must supply the id for the email you want to delete.",
       error: true,
     });
+  let Email = EmailsSchema.find({ id: req.params.id });
+  if(Email.addedBy !== req.user.id) {
+    res.status(400).json({ message: 'You are not authorized for that', error: true });
+    return; // end the process
+  }
   // do some verification here -- are they allowed to delete this?
   EmailsSchema.findOneAndDelete({ id: req.params.id }).exec(function (err) {
     if (err)
