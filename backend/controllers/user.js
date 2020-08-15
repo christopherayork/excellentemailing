@@ -79,8 +79,13 @@ const updateUser = async (req, res) => {
       .status(500)
       .json({ message: "You must supply a user ID as {id: value}" });
   try {
-    await Users.findOneAndUpdate({ id: userID }, changes);
-    res.status(200).json({ message: "User updated." });
+    let User = await Users.find({ id: userID });
+    if(!User || req.user.id !== User.id) {
+      res.status(400).json({ message: 'Not authorized.', error: true });
+    } else {
+      await Users.findOneAndUpdate({ id: userID }, changes);
+      res.status(200).json({ message: "User updated." });
+    }
   } catch (err) {
     res.status(400).json({ message: "Could not update user.", error: true });
   }

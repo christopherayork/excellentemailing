@@ -65,24 +65,29 @@ const updateEmails = (req, res) => {
 };
 
 const deleteEmails = (req, res) => {
-  res.status(200).json({ EmailsId: req.params.id });
   if (!req.params.id)
     res.status(400).json({
       message: "You must supply the id for the email you want to delete.",
       error: true,
     });
-  let Email = EmailsSchema.find({ id: req.params.id });
-  if(Email.addedBy !== req.user.id) {
-    res.status(400).json({ message: 'You are not authorized for that', error: true });
-    return; // end the process
-  }
-  // do some verification here -- are they allowed to delete this?
-  EmailsSchema.findOneAndDelete({ id: req.params.id }).exec(function (err) {
-    if (err)
-      res
-        .status(400)
-        .json({ message: "Email could not be deleted.", error: true });
-    else res.status(200).json({ message: "Email was successfully deleted." });
+  EmailsSchema.findById(req.params.id, function(err, email) {
+    if(err){
+      res.status(404).json({ message: 'Email does not exist', error: true });
+      return;
+    }
+    console.log(req.user);
+    console.log(email);
+    if(`${email.addedBy}` !== req.user.id) {
+      res.status(400).json({ message: 'You are not authorized for that', error: true });
+    } else {
+      EmailsSchema.findOneAndDelete({ _id: req.params.id }).exec(function (err) {
+        if (err)
+          res
+              .status(400)
+              .json({ message: "Email could not be deleted.", error: true });
+        else res.status(200).json({ message: "Email was successfully deleted." });
+      });
+    }
   });
 };
 
