@@ -1,5 +1,6 @@
 const express = require("express");
 const UsersController = require("../controllers/user");
+const Auth = require('../middleware/authenticate-middleware');
 
 // Router initialisation
 const router = express.Router();
@@ -15,10 +16,10 @@ router.get("/", UsersController.viewAllUsers);
 router.get("/getUser/:id", UsersController.getUser);
 
 // Update
-router.patch("/updateUser/:id", UsersController.updateUser);
+router.patch("/updateUser/:id", Auth, UsersController.updateUser);
 
 // Delete
-router.delete("/deleteUser/:id", UsersController.deleteUser);
+router.delete("/deleteUser/:id", Auth, UsersController.deleteUser);
 
 //Login
 router.post("/login", UsersController.loginUser);
