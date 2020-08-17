@@ -6,12 +6,6 @@ const Onboarding = (props) => {
     username: "",
     email: "",
     psw: "",
-    pswRepeat: "",
-  });
-  const [displayUser, setDisplayUser] = useState({
-    username: "",
-    email: "",
-    psw: "",
   });
   const [onboardingState, setOnboardingState] = useState(false);
 
@@ -46,7 +40,7 @@ const Onboarding = (props) => {
         })
         .catch((err) => console.log(err.response));
     }
-    setUser({ username: "", email: "", psw: "", pswRepeat: "" });
+    setUser({ username: "", email: "", psw: "" });
     event.preventDefault();
   };
   const handleSwitch = (event) => {
@@ -89,18 +83,6 @@ const Onboarding = (props) => {
           value={user.psw}
           onChange={(event) => handleChange(event)}
         />
-        {onboardingState ? (
-          <input
-            type='password'
-            placeholder='Confirm Password'
-            name='pswRepeat'
-            required
-            value={user.pswRepeat}
-            onChange={(event) => handleChange(event)}
-          />
-        ) : (
-          ""
-        )}
         <div className='button-cont'>
           {onboardingState ? (
             <button type='submit' className='signupbtn'>
@@ -111,9 +93,6 @@ const Onboarding = (props) => {
               Sign In
             </button>
           )}
-          <button type='button' className='cancelbtn'>
-            Cancel
-          </button>
         </div>
         {onboardingState ? (
           <p>

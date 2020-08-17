@@ -72,85 +72,82 @@
 /* Form Temp Styles */
 
 .form-cont {
-    width: 450px;
-    height: auto;
-    margin: 0 auto 0;
-    padding: 25px 50px;
-    color: #fff;
-    background-color: rgba(0, 0, 0, 0.65);
+  width: 450px;
+  height: auto;
+  margin: 0 auto 0;
+  padding: 25px 50px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.65);
 }
 .form-cont h3 {
-    text-align: center;
-    font-size: 22px;
-    font-family: Arial, Helvetica, sans-serif;
-    margin:0;
-    padding: 0 0 15px;
-    text-transform: uppercase;
+  text-align: center;
+  font-size: 22px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0 0 15px;
+  text-transform: uppercase;
 }
 .form-cont form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 .form-cont form input {
-    flex: none;
-    background-color: #fff;
-    padding:10px;
-    outline: none;
-    border: 1px solid #fff;
-    margin-top: 10px;
+  flex: none;
+  background-color: #fff;
+  padding: 10px;
+  outline: none;
+  border: 1px solid #fff;
+  margin-top: 10px;
 }
 .form-cont form .button-cont {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 }
 .form-cont form button {
-    background-color: rgb(252, 51, 0);
-    width: 100%;
-    border: none;
-    color: white;
-    padding: 10px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin-top: 10px;
-    margin-right: 10px;
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: .1em;
-    font-weight: bold;
-    font-size: 14px;
-    transition: all ease-in .3s;
-    border-top: 3px solid rgb(252, 51, 0);
-    border-bottom: 3px solid rgb(252, 51, 0);
+  background-color: rgb(252, 51, 0);
+  width: 100%;
+  border: none;
+  color: white;
+  padding: 10px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+  font-size: 14px;
+  transition: all ease-in 0.3s;
+  border-top: 3px solid rgb(252, 51, 0);
+  border-bottom: 3px solid rgb(252, 51, 0);
 }
 .form-cont form button:hover {
-    width: 90%;
-    background-color: transparent;
-    border-top: 3px solid rgb(192, 38, 0);
-    border-bottom: 3px solid rgb(192, 38, 0);
-    /* color: rgb(252, 51, 0); */
-    color: #fff;
-    transition: all ease-out 0.3s;
-    letter-spacing: .2em;
-    height: 43px;
+  background-color: transparent;
+  border-top: 3px solid rgb(192, 38, 0);
+  border-bottom: 3px solid rgb(192, 38, 0);
+  color: #fff;
+  transition: all ease-out 0.3s;
+  height: 43px;
 }
 .form-cont form button:last-child {
-    margin-right: 0;
+  margin-right: 0;
 }
 .form-cont form a {
-    color: rgb(252, 51, 0);
-    text-transform: uppercase;
-    border-radius: 10px;
-    padding: 5px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    letter-spacing: .2em;
-    transition: color 0.3s;
+  color: rgb(252, 51, 0);
+  text-transform: uppercase;
+  border-radius: 10px;
+  padding: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+  transition: color 0.3s;
 }
 .form-cont form a:hover {
-    color: #fff;
+  color: #fff;
 }
 .form-cont .switch {
   background-color: transparent;
@@ -162,7 +159,7 @@
 .form-cont .switch:hover {
   border: none;
   height: auto;
-  letter-spacing: .1em;
+  letter-spacing: 0.1em;
   color: rgb(252, 51, 0);
 }
 /* Footer Styles */
@@ -173,14 +170,14 @@
   background-color: tomato;
   font-size: 13px;
   width: 100%;
-  padding:15px;
+  padding: 15px;
   margin-bottom: 25px;
 }
 
 /* Dashboard */
 .dashboard {
   background-color: rgba(0, 0, 0, 0.65);
-  padding:50px;
+  padding: 50px;
   text-align: left;
 }
 .dashboard h3 {
@@ -268,7 +265,8 @@ table {
   width: 100%;
 }
 
-td, th {
+td,
+th {
   border: 1px solid tomato;
   text-align: left;
   padding: 8px;
